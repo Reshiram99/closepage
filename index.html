@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html style="height:100%">
 <head>
 	<script>
 		function ready(){
@@ -16,7 +16,13 @@
 <meta charset="ISO-8859-1">
 <title>DI Mobile</title>
 </head>
-<body onload="ready()" style="position:fixed;top:45%;left:45%">
+<body onload="ready()" style="display: flex;
+    height: 100%;
+    align-content: flex-end;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: nowrap;">
 	<div id="content"></div>
 	<button onclick="window.close()">Close</button>
 </body>
