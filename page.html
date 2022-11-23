@@ -1,0 +1,14 @@
+<html>
+    <script>
+        function ready(){
+            window.addEventListener("message", (ev)=>{
+                document.getElementById("frame").remove()
+            });
+        }
+       
+    </script>
+    <body>
+        Hello<br>
+        <iframe onload="ready()" id="frame" src="https://reshiram99.github.io/closepage/"></iframe>
+    </body>
+</html>
