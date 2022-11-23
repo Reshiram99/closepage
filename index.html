@@ -12,6 +12,16 @@
 				document.getElementById("content").innerHTML = "Session time out"
 			}
 		}
+
+		function clicked(){
+			try{
+				document.parent.postMessage('close','*')
+			}
+			catch(ex){
+
+			}
+			window.parent.postMessage('close','*')
+		}
 	</script>
 <meta charset="ISO-8859-1">
 <title>DI Mobile</title>
@@ -24,6 +34,6 @@
     align-items: center;
     flex-wrap: nowrap;">
 	<div id="content"></div>
-	<button onclick="window.parent.postMessage('close','*')">Close</button>
+	<button onclick="clicked()">Close</button>
 </body>
 </html>
