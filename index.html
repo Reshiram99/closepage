@@ -6,7 +6,7 @@
 			var url= location.href
 			var param=url.split("?event=")
 			var paramValue = param[1] ? param[1] : ""
-			if(successFlag || paramValue == "signing_complete"){
+			if(paramValue == "signing_complete"){
 				document.getElementById("success").classList.remove("d-none");
 				document.getElementById("error").classList.add("d-none");
 			}else{
