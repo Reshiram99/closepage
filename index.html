@@ -5,10 +5,8 @@
 		function ready(){
 			var url= location.href
 			var param=url.split("?event=")
-			var paramValue = param[1] ? param[1] : "";
-			console.log("audioElement::",parent.document.getElementById('audioElement'));
-			parent.document.getElementById('audioElement')
-			if(paramValue == "signing_complete"){
+			var paramValue = param[1] ? param[1] : ""
+			if(successFlag || paramValue == "signing_complete"){
 				document.getElementById("success").classList.remove("d-none");
 				document.getElementById("error").classList.add("d-none");
 			}else{
@@ -19,12 +17,12 @@
 
 		function clicked(){
 			try{
-				document.parent.postMessage('close','*')
+				document.parent.postMessage('close','*');
 			}
 			catch(ex){
 
 			}
-			window.parent.postMessage('close','*')
+			window.parent.postMessage('close','*');
 		}
 	</script>
 <meta charset="ISO-8859-1">
@@ -41,7 +39,7 @@
 	:root{
 		--success-color: rgb(55,122,58); 
 		--error-color: #D50000;
-		--disabled-color: #d9e0e3
+		--disabled-color: #d9e0e3;
 	}
 	body{
 		background-color:  rgb(247,247,247);
@@ -58,14 +56,15 @@
 		width: 100%;
 	}
 	.card-header{
-		background-color: var(--disabled-color);
+		font-size: 24px;
 		box-shadow: 3px 5px 10px rgb(0 0 0 / 10%);
 	}
-	#error {
-		/* box-shadow: 6px 6px 20px 0px rgb(0 0 0 / 15%); */
+	.card-link{
+		box-shadow: 0px -30px 50px rgb(2 136 209 / 2%), 0px -8px 50px rgb(120 144 156 / 20%)
 	}
-	.header{		
-		font-size: 28px;
+	#error .card-header{
+		/* box-shadow: 6px 6px 20px 0px rgb(0 0 0 / 15%); */		
+		background-color: var(--disabled-color);
 	}
 	.success content{
 		color: var(--success-color);
@@ -80,17 +79,19 @@
 	}
 	#error i{
 		border: 0px;
-		;
 		color: var(--error-color);
 	}
-	button{
-		color:#efefef !important
-	}
-	#success button{
-		background-color: var(--success-color);
+	.btn {
+		font-weight: 600;
+		box-shadow: 0px 3px 6px rgba(0,0,0,0.1), 0px 1px 3px rgba(0,0,0,0.1), 0px 10px 20px rgba(0,0,0,0.08)
 	}
 	#error button{
-		background-color: var(--error-color);
+		color: var(--error-color);
+		border : 1px solid var(--error-color);
+	}
+	#success button{
+		color: var(--success-color);
+		border : 1px solid var(--success-color);
 	}
 </style>
 </head>
@@ -105,7 +106,9 @@
 			<div class="card-body text-left">
 				You have succesfully signed the document. Please click on close button to return back to app.
 			</div>
-			<button onclick="clicked()"  class="btn-lg btn-block">Close</button>
+		<div class="card-link m-2 p-4">
+			<button onclick="clicked()"  class="btn btn-lg btn-block ">Close</button>
+		</div>
 	</div>
 	<div id="error" class="card text-center d-none" >
 		<div class="card-header">
@@ -117,7 +120,9 @@
 		<div class="card-body text-left">
 			There is error in opening generated document. Please click on close button to return back to app.
 		</div>
-		<button onclick="clicked()" class="btn btn-secondary btn-lg btn-block">Close</button>
+		<div class="card-link m-2 p-4">
+			<button onclick="clicked()"  class="btn btn-lg btn-block">Close</button>
+		</div>
 	</div>
 </body>
 </html>
