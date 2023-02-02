@@ -62,19 +62,21 @@
 	.card-link{
 		box-shadow: 0px -30px 50px rgb(2 136 209 / 2%), 0px -8px 50px rgb(120 144 156 / 20%)
 	}
+	.card-header{		
+		box-shadow: 6px 6px 20px 0px rgb(0 0 0 / 15%);	
+	}
 	#error .card-header{
-		/* box-shadow: 6px 6px 20px 0px rgb(0 0 0 / 15%); */		
+			
 		background-color: var(--disabled-color);
 	}
 	.success content{
 		color: var(--success-color);
 	}
 	i.fa{
-		font-size: 80px;
+/* 		font-size: 80px; */
 		filter:drop-shadow(0px 15px 20px rgba(84,110,122,0.6));
 	}
 	#success i{
-		font-size: 80px;
 		color: var(--success-color);
 	}
 	#error i{
@@ -98,27 +100,29 @@
 <body onload="ready()">
 	<div id="success" class="card text-center d-none" >
 		<div class="card-header">
-			<i class="fa fa-solid fa-check-circle card-img-top py-4"></i>
-			<div id="content" class="p-4">
-				<p class="header"><b>Thank you for signing</b></p>
+<!-- 			<i class="fa fa-info-circle card-img-top py-4" aria-hidden="true"></i> -->
+			<div id="content" class="p-2">
+				<i class="fa fa-info-circle fa-fw" aria-hidden="true"></i>
+				<b>You have signed document</b>
 			</div>
 		</div>
 			<div class="card-body text-left">
-				You have succesfully signed the document. Please click on close button to return back to app.
+				Please tap on cotinue button to finish the transfer.
 			</div>
 		<div class="card-link m-2 p-4">
-			<button onclick="clicked()"  class="btn btn-lg btn-block ">Close</button>
+			<button onclick="clicked()"  class="btn btn-lg btn-block ">Continue</button>
 		</div>
 	</div>
 	<div id="error" class="card text-center d-none" >
 		<div class="card-header">
-			<i class="fa fa-solid fa-exclamation-circle card-img-top py-4"></i>
-			<div id="content" class="p-4">
-				<p class="header"><b>Session timeout</b></p>
+<!-- 			<i class="fa fa-solid fa-exclamation-circle card-img-top py-4"></i> -->
+			<div id="content" class="p-2">
+				<i class="fa fa-solid fa-exclamation-circle fa-fw"></i>
+				<b>Something went wrong</b>
 			</div>
 		</div>
 		<div class="card-body text-left">
-			There is error in opening generated document. Please click on close button to return back to app.
+			There is error in opening generated document. Please tap on close button and try signning again.
 		</div>
 		<div class="card-link m-2 p-4">
 			<button onclick="clicked()"  class="btn btn-lg btn-block">Close</button>
