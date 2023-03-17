@@ -95,6 +95,39 @@
 		color: var(--success-color);
 		border : 1px solid var(--success-color);
 	}
+	
+	@media only screen and (orientation: landscape) {
+		html, body{
+			overflow: scroll;
+		}
+
+		.card-header{
+			font-size: 20px;
+			padding-left: 40px;
+			padding-right: 40px;
+		}
+
+		i.fa {
+			font-size: 30px;
+			vertical-align: middle;
+			width: auto;
+			padding: 0 !important;
+		}
+
+		#content {
+			display: inline-block;
+		}
+
+		.card-body{
+			padding-left: 40px;
+			padding-right: 40px;
+		}
+
+		.btn-block {
+			width: 55%;
+			margin: 0 auto;
+		}
+	}
 </style>
 </head>
 <body onload="ready()">
