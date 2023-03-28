@@ -7,22 +7,26 @@
 			var param=url.split("?event=")
 			var paramValue = param[1] ? param[1] : ""
 			if(paramValue == "signing_complete"){
+				triggerMessage("success");
 				document.getElementById("success").classList.remove("d-none");
 				document.getElementById("error").classList.add("d-none");
 			}else{
+				triggerMessage("error");
 				document.getElementById("error").classList.remove("d-none");
 				document.getElementById("success").classList.add("d-none");
 			}
 		}
-
-		function clicked(){
+		functio triggerMessage(message){
 			try{
-				document.parent.postMessage('close','*');
+				document.parent.postMessage(message,'*');
 			}
 			catch(ex){
 
 			}
-			window.parent.postMessage('close','*');
+			window.parent.postMessage(message,'*');
+		}
+		function clicked(){
+			triggerMessage('close');
 		}
 	</script>
 <meta charset="ISO-8859-1">
